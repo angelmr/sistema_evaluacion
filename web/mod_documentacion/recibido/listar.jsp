@@ -1,16 +1,17 @@
 <%-- 
     Document   : listar
-    Created on : 16-ago-2019, 11:54:41
+    Created on : 20-ago-2019, 14:27:42
     Author     : marco
 --%>
 
-<%@page import="ReglasDeNegocio.Folder"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
+<%@page import="ReglasDeNegocio.Recibidos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
- List<Folder> lista=Folder.recibido_buscartodos();
- Iterator<Folder> itFolder=lista.iterator();
+
+<%      
+ List<Recibidos> lista=Recibidos.recibido_buscartodos();
+ Iterator<Recibidos> itRecibidos=lista.iterator();
 %>
 <!DOCTYPE html>
 <html>
@@ -24,11 +25,10 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
         
-        <title>Folder</title>
+        <title>Recibidos</title>
     </head>
-    
     <body>
-         <!--Sección alerta-->
+        <!--Sección alerta-->
         <%
             String alerta="";
             try {
@@ -49,46 +49,53 @@
        <% }%>
         <!--Fin Sección alerta-->
         
-      <h1>Folder</h1> 
-      <!--Boton para ingresar nuevo-->
-      <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
-      <!--Fin Boton para ingresar nuevo-->
-          
-         
-         
-     <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
-               
-               <thead>
+         <h1>Recibidos</h1> 
+         <!--Boton para ingresar nuevo-->
+         <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
+         <!--Fin Boton para ingresar nuevo-->
+        
+         <!--Tabla para listar los datos-->
+        <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                <thead>
                 <th>Id</th>
-                <th>Nombre</th>
-                <th>Tipo</th>
-                <th>Id recibido</th>
+                <th>Id eliminacion</th> 
+                <th>Id documento</th>
+                <th>Id remitente</th>                                
+                <th>Fecha oficio</th>               
+                <th>Asunto</th>
+                <th>Destinatario</th>
+                <th>Fecha ingreso</th> 
                 <th></th>
                 </thead>
                 <tbody>
-               <%while(itFolder.hasNext()){
-                  Folder folder=itFolder.next();%>
+               <%while(itRecibidos.hasNext()){
+                  Recibidos recibidos = itRecibidos.next();%>
                 <tr>
-                   <td><%= folder.getId_folder()%></td>
-                   <td><%= folder.getNombre()%></td>
-                   <td><%= folder.getTipo()%></td>
-                   <td><%= folder.getRecibidos()%></td>
+                   <td><%=recibidos.getId_recibidos()%></td>
+                   <td><%=recibidos.getEliminacion()%></td>
+                   <td><%=recibidos.getId_documento()%></td>
+                    <td><%=recibidos.getPersonal()%></td>                    
+                    <td><%=recibidos.getFecha_oficio()%></td>
+                    <td><%=recibidos.getAsunto()%></td>
+                    <td><%=recibidos.getFecha_ingreso()%></td>
+                    <td><%=recibidos.getDestinatario()%></td>
                    <td>
-                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= folder.getId_folder()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
-                         <button type="button"  onclick="return modaleditar(<%= folder.getId_folder()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>  
+                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= recibidos.getId_recibidos()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
+                      <button type="button"  onclick="return modaleditar(<%= recibidos.getId_recibidos()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>  
 
                    </td>
                 </tr>
                <%}%>                
                 </tbody>           
             </table>
-                
-                <div class="modal fade" id="ModalEditar" class="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!--Fin tabla para listar los datos-->
+            
+            <!--Boton editar Recibidos-->
+            <div class="modal fade" id="ModalEditar" class="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar Folder</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Recibidos</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -100,14 +107,14 @@
               </div>
             </div>
           </div> 
-                
-                
-           <div class="modal fade" id="ModalNuevo" class="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            
+            <!--Boton Nuevo Recibidos-->
+            <div class="modal fade" id="ModalNuevo" class="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Folder</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Recibidos</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -118,10 +125,8 @@
                       </div>
               </div>
             </div>
-          </div>       
-                
-                
-                
+          </div>
+            
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
@@ -135,8 +140,9 @@
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+         
     
-  <script>
+    <script>
            function modaleditar(codigo){
            
       

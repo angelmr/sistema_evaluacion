@@ -4,13 +4,13 @@
     Author     : marco
 --%>
 
-<%@page import="ReglasDeNegocio.Personal"%>
+<%@page import="ReglasDeNegocio.Folder"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
- List<Personal> lista=Personal.personal_buscartodos();
- Iterator<Personal> itPersonal=lista.iterator();
+ List<Folder> lista=Folder.recibido_buscartodos();
+ Iterator<Folder> itFolder=lista.iterator();
 %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
         
-        <title>Personals</title>
+        <title>Folder</title>
     </head>
     
     <body>
@@ -49,7 +49,7 @@
        <% }%>
         <!--Fin Sección alerta-->
         
-      <h1>Personals</h1> 
+      <h1>Folder</h1> 
       <!--Boton para ingresar nuevo-->
       <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
       <!--Fin Boton para ingresar nuevo-->
@@ -60,27 +60,22 @@
                
                <thead>
                 <th>Id</th>
-                <th>Id documento</th>
-                <th>Descripcion</th>
-                <th>Plazo</th>
-                <th>Base legal</th>
-                <th>Tecnica seleccion</th>
-                <th>Digitalizacion</th>
-                <th>Observacion</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Id recibido</th>
                 <th></th>
                 </thead>
                 <tbody>
-               <%while(itPersonal.hasNext()){
-                  Personal personal=itPersonal.next();%>
+               <%while(itFolder.hasNext()){
+                  Folder folder=itFolder.next();%>
                 <tr>
-                   <td><%= personal.getId_personal()%></td>
-                   <td><%= personal.getNombre()%></td>
-                   <td><%= personal.getApellidos()%></td>
-                   <td><%= personal.getCedula()%></td>
-                   <td><%= personal.getCargo()%></td>
+                   <td><%= folder.getId_folder()%></td>
+                   <td><%= folder.getNombre()%></td>
+                   <td><%= folder.getTipo()%></td>
+                   <td><%= folder.getRecibidos()%></td>
                    <td>
-                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= personal.getId_personal()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
-                         <button type="button"  onclick="return modaleditar(<%= personal.getId_personal()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>  
+                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= folder.getId_folder()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
+                         <button type="button"  onclick="return modaleditar(<%= folder.getId_folder()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>  
 
                    </td>
                 </tr>
@@ -93,7 +88,7 @@
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar Personal</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Folder</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -112,7 +107,7 @@
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Personal</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Folder</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
