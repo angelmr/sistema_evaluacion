@@ -17,7 +17,7 @@ try {
             eliminacion.setTecnica_seleccion(request.getParameter("tecnica_seleccion"));
             eliminacion.setDigitalizacion(request.getParameter("digitalizacion"));
             eliminacion.setObservacion(request.getParameter("observacion"));
-           boolean result= Programa.programa_insertar(programa);
+           boolean result= Eliminacion.eliminacion_insertar(eliminacion);
              if (result)
                 out.println("<script> alert('Se ha guardado correctamente...'); location.replace('listar.jsp');</script>");
             else 

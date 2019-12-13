@@ -82,8 +82,8 @@
                    <td><%= eliminacion.getDigitalizacion()%></td>
                    <td><%= eliminacion.getObservacion()%></td>
                    <td>
-                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= eliminacion.getEliminacionid()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
-                         <button type="button"  onclick="return modaleditar(<%= eliminacion.getEliminacionid()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>  
+                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= eliminacion.getId_eliminacion()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
+                         <button type="button"  onclick="return modaleditar(<%= eliminacion.getId_eliminacion()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>  
 
                    </td>
                 </tr>
