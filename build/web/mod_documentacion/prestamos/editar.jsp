@@ -19,14 +19,14 @@
 %>
 
 <%!
-   Enviados enviado= new Enviados();
+   Prestamo enviado= new Prestamo();
 %>
 <%
     try {
         
          int codigo= Integer.parseInt(request.getParameter("codigo"));
       //  out.print("<script>alert("+codigo+");</script>");
-         enviado = Enviados.enviados_buscarporid(codigo);                       
+         enviado = Prestamo.prestamo_buscarporid(codigo);                       
         } catch (Exception e) {
         }
    
@@ -37,17 +37,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Editar Enviados</title>
+        <title>Editar Prestamo</title>
      
     </head>
     
     <body>                    
           <form method="POST" action="procesa_editar.jsp">
-          <input type="hidden" id="codigo" name="codigo" value="<%=enviado.getId_enviados()%>">         
-           <input type="text" class="form-control" placeholder="Id_documento"  id="id_documento" value="<%=enviado.getId_documento()%>" name="id_documento"/>
-            <input type="text" class="form-control" placeholder="Descripcion"  id="descripcion" value="<%=enviado.getDescripcion()%>" name="descripcion"/>     
-            
-            <select class="form-control" placeholder="Id_personal" id="id_personal" value="<%=enviado.getPersonal()%>" name="id_personal">  
+          <input type="hidden" id="codigo" name="codigo" value="<%=enviado.getId_prestamo()%>">         
+           <input type="text" class="form-control" placeholder="Id_documento"  id="id_documento" value="<%=enviado.getId_documento()%>"  name="id_documento"/>
+            <input type="text" class="form-control" placeholder="Nombre"  id="nombre" value="<%=enviado.getNombre()%>" name="nombre"/>     
+            <input type="text" class="form-control" placeholder="Dependencia"  id="dependencia" value="<%=enviado.getDependencia()%>" name="dependencia"/>                
+            <select class="form-control" placeholder="Id_personal" id="id_personal" value="<%=enviado.getPersonal()%>"  name="id_personal">  
             <option>Personal</option>
             <%while(itPersonal.hasNext()){
                 Personal personal = itPersonal.next();%> %>

@@ -25,7 +25,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
         
-        <title>Enviadoss</title>
+        <title>Enviados</title>
     </head>
     <body>
         <!--Sección alerta-->
@@ -49,7 +49,7 @@
        <% }%>
         <!--Fin Sección alerta-->
         
-         <h1>Enviadoss</h1> 
+         <h1>Enviados</h1> 
          <!--Boton para ingresar nuevo-->
          <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
          <!--Fin Boton para ingresar nuevo-->
@@ -57,11 +57,10 @@
          <!--Tabla para listar los datos-->
         <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                <thead>
                 <th>Id</th>
-                <th>Nombre</th>
-                <th>Apellido</th>                                
-                <th>Cedula</th>               
-                <th>Programa</th>
-                <th>Fecha</th>
+                <th>Id documento</th>
+                <th>Descripcion</th>                                
+                <th>Id personal</th>               
+                <th>Id ciudadano</th>
                 <th></th>
                 </thead>
                 <tbody>
