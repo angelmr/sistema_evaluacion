@@ -7,16 +7,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,ReglasDeNegocio.*"%>
 <!DOCTYPE html>
 <%
- //String prueba=request.getParameter("nombre_producto").toString();
-
- //String prueba2=request.getParameter("categoria_producto").toString();
- //out.print(prueba);   
- //out.print(prueba2); */
 
 try {
-            Programa programa=new Programa();
-            programa.setNombre(request.getParameter("nombre"));
-            programa.setDescripcion(request.getParameter("descripcion"));
+            Eliminacion eliminacion=new Eliminacion();
+            eliminacion.setId_documento(Integer.valueOf(request.getParameter("id_documento")));
+            eliminacion.setDescrpcion(request.getParameter("descripcion"));
+            eliminacion.setBase_legal(request.getParameter("base_legal"));
+            eliminacion.setPlazo(request.getParameter("plazo"));
+            eliminacion.setTecnica_seleccion(request.getParameter("tecnica_seleccion"));
+            eliminacion.setDigitalizacion(request.getParameter("digitalizacion"));
+            eliminacion.setObservacion(request.getParameter("observacion"));
            boolean result= Programa.programa_insertar(programa);
              if (result)
                 out.println("<script> alert('Se ha guardado correctamente...'); location.replace('listar.jsp');</script>");

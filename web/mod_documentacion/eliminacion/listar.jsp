@@ -4,13 +4,13 @@
     Author     : marco
 --%>
 
-<%@page import="ReglasDeNegocio.Programa"%>
+<%@page import="ReglasDeNegocio.Eliminacion"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
- List<Programa> lista=Programa.programa_buscartodos();
- Iterator<Programa> itPrograma=lista.iterator();
+ List<Eliminacion> lista=Eliminacion.eliminacion_buscartodos();
+ Iterator<Eliminacion> itEliminacion=lista.iterator();
 %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
         
-        <title>Programas</title>
+        <title>Eliminacions</title>
     </head>
     
     <body>
@@ -49,7 +49,7 @@
        <% }%>
         <!--Fin Sección alerta-->
         
-      <h1>Programas</h1> 
+      <h1>Eliminacions</h1> 
       <!--Boton para ingresar nuevo-->
       <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
       <!--Fin Boton para ingresar nuevo-->
@@ -60,20 +60,30 @@
                
                <thead>
                 <th>Id</th>
-                <th>Nombre Programa</th>
+                <th>Id documento</th>
                 <th>Descripcion</th>
+                <th>Plazo</th>
+                <th>Base legal</th>
+                <th>Tecnica seleccion</th>
+                <th>Digitalizacion</th>
+                <th>Observacion</th>
                 <th></th>
                 </thead>
                 <tbody>
-               <%while(itPrograma.hasNext()){
-                  Programa programa=itPrograma.next();%>
+               <%while(itEliminacion.hasNext()){
+                  Eliminacion eliminacion=itEliminacion.next();%>
                 <tr>
-                   <td><%= programa.getProgramaid()%></td>
-                   <td><%= programa.getNombre()%></td>
-                   <td><%= programa.getDescripcion()%></td>
+                   <td><%= eliminacion.getId_eliminacion()%></td>
+                   <td><%= eliminacion.getId_documento()%></td>
+                   <td><%= eliminacion.getDescrpcion()%></td>
+                   <td><%= eliminacion.getBase_legal()%></td>
+                   <td><%= eliminacion.getPlazo()%></td>
+                   <td><%= eliminacion.getTecnica_seleccion()%></td>
+                   <td><%= eliminacion.getDigitalizacion()%></td>
+                   <td><%= eliminacion.getObservacion()%></td>
                    <td>
-                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= programa.getProgramaid()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
-                         <button type="button"  onclick="return modaleditar(<%= programa.getProgramaid()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>  
+                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= eliminacion.getEliminacionid()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
+                         <button type="button"  onclick="return modaleditar(<%= eliminacion.getEliminacionid()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>  
 
                    </td>
                 </tr>
@@ -86,7 +96,7 @@
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar Programa</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Eliminacion</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -105,7 +115,7 @@
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Programa</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Eliminacion</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>

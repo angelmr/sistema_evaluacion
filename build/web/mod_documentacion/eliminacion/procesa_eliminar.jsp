@@ -4,12 +4,12 @@
     Author     : marco
 --%>
 
-<%@page import="ReglasDeNegocio.Programa"%>
+<%@page import="ReglasDeNegocio.Eliminacion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
 try {
-       boolean result =Programa.programa_eliminar(Integer.valueOf(request.getParameter("codigo")));
+       boolean result =Eliminacion.eliminacion_eliminar(Integer.valueOf(request.getParameter("codigo")));
         if (result)
        out.println("<script>; location.replace('listar.jsp?alerta=si');</script>");
         else 

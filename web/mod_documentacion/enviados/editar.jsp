@@ -44,17 +44,17 @@
     <body>                    
           <form method="POST" action="procesa_editar.jsp">
           <input type="hidden" id="codigo" name="codigo" value="<%=enviado.getId_enviados()%>">         
-           <input type="text" class="form-control" placeholder="Id_documento" required id="nombre" name="id_documento"/>
-            <input type="text" class="form-control" placeholder="Descripcion" required id="apellido" name="descripcion"/>     
+           <input type="text" class="form-control" placeholder="Id_documento"  id="id_documento" value="<%=enviado.getId_documento()%> name="id_documento"/>
+            <input type="text" class="form-control" placeholder="Descripcion"  id="descripcion" value="<%=enviado.getDescripcion()%> ="descripcion"/>     
             
-            <select class="form-control" placeholder="Id_personal" required id="personalid" name="id_personal">  
+            <select class="form-control" placeholder="Id_personal" id="id_personal" value="<%=enviado.getPersonal()%> name="id_personal">  
             <option>Personal</option>
             <%while(itPersonal.hasNext()){
                 Personal personal = itPersonal.next();%> %>
                 <option value="<%=personal.getId_personal()%>"><%=personal.getNombre()%></option>
             <% } %> 
             </select>
-            <select class="form-control" placeholder="Progamaid" required id="personalid" name="id_ciudadanos">  
+            <select class="form-control" placeholder="Id_ciudadanos"  id="id_ciudadanos" value="<%=enviado.getCiudadanos()%> name="id_ciudadanos">  
             <option>Ciudadanos</option>
             <%while(itCiudadanos.hasNext()){
                 Ciudadanos ciudadanos = itCiudadanos.next();%> %>

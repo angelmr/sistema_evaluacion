@@ -29,17 +29,17 @@
     <body>  
         
             <form method="POST"  action="procesa_nuevo.jsp">            
-            <input type="text" class="form-control" placeholder="Id_documento" required id="nombre" name="id_documento"/>
-            <input type="text" class="form-control" placeholder="Descripcion" required id="apellido" name="descripcion"/>     
+            <input type="text" class="form-control" placeholder="Id_documento" required id="id_documento" name="id_documento"/>
+            <input type="text" class="form-control" placeholder="Descripcion" required id="descripcion" name="descripcion"/>     
             
-            <select class="form-control" placeholder="Id_personal" required id="personalid" name="id_personal">  
+            <select class="form-control" placeholder="Id_personal" required id="id_personal" name="id_personal">  
             <option>Personal</option>
             <%while(itPersonal.hasNext()){
                 Personal personal = itPersonal.next();%> %>
                 <option value="<%=personal.getId_personal()%>"><%=personal.getNombre()%></option>
             <% } %> 
             </select>
-            <select class="form-control" placeholder="Progamaid" required id="personalid" name="id_ciudadanos">  
+            <select class="form-control" placeholder="Id_ciudadanos" required id="id_ciudadanos" name="id_ciudadanos">  
             <option>Ciudadanos</option>
             <%while(itCiudadanos.hasNext()){
                 Ciudadanos ciudadanos = itCiudadanos.next();%> %>
