@@ -19,14 +19,14 @@
 %>
 
 <%!
-   Prestamo enviado= new Prestamo();
+   Prestamo prestamo= new Prestamo();
 %>
 <%
     try {
         
          int codigo= Integer.parseInt(request.getParameter("codigo"));
       //  out.print("<script>alert("+codigo+");</script>");
-         enviado = Prestamo.prestamo_buscarporid(codigo);                       
+         prestamo = Prestamo.prestamo_buscarporid(codigo);                       
         } catch (Exception e) {
         }
    
@@ -43,18 +43,18 @@
     
     <body>                    
           <form method="POST" action="procesa_editar.jsp">
-          <input type="hidden" id="codigo" name="codigo" value="<%=enviado.getId_prestamo()%>">         
-           <input type="text" class="form-control" placeholder="Id_documento"  id="id_documento" value="<%=enviado.getId_documento()%>"  name="id_documento"/>
-            <input type="text" class="form-control" placeholder="Nombre"  id="nombre" value="<%=enviado.getNombre()%>" name="nombre"/>     
-            <input type="text" class="form-control" placeholder="Dependencia"  id="dependencia" value="<%=enviado.getDependencia()%>" name="dependencia"/>                
-            <select class="form-control" placeholder="Id_personal" id="id_personal" value="<%=enviado.getPersonal()%>"  name="id_personal">  
+          <input type="hidden" id="codigo" name="codigo" value="<%=prestamo.getId_prestamo()%>">         
+           <input type="text" class="form-control" placeholder="Id_documento"  id="id_documento" value="<%=prestamo.getId_documento()%>"  name="id_documento"/>
+            <input type="text" class="form-control" placeholder="Nombre"  id="nombre" value="<%=prestamo.getNombre()%>" name="nombre"/>     
+            <input type="text" class="form-control" placeholder="Dependencia"  id="dependencia" value="<%=prestamo.getDependencia()%>" name="dependencia"/>                
+            <select class="form-control" placeholder="Id_personal" id="id_personal" value="<%=prestamo.getPersonal()%>"  name="id_personal">  
             <option>Personal</option>
             <%while(itPersonal.hasNext()){
                 Personal personal = itPersonal.next();%> %>
                 <option value="<%=personal.getId_personal()%>"><%=personal.getNombre()%></option>
             <% } %> 
             </select>
-            <select class="form-control" placeholder="Id_ciudadanos"  id="id_ciudadanos" value="<%=enviado.getCiudadanos()%>" name="id_ciudadanos">  
+            <select class="form-control" placeholder="Id_ciudadanos"  id="id_ciudadanos" value="<%=prestamo.getCiudadanos()%>" name="id_ciudadanos">  
             <option>Ciudadanos</option>
             <%while(itCiudadanos.hasNext()){
                 Ciudadanos ciudadanos = itCiudadanos.next();%> %>
