@@ -106,7 +106,14 @@ public class Eliminacion {
     public void setObservacion(String observacion) {
         this.observacion = observacion;
     }
-  
+
+    @Override
+    public String toString() {
+        return descrpcion; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+    
         // Buscar todos
     public static ArrayList<Eliminacion> eliminacion_buscartodos() throws Exception
     {

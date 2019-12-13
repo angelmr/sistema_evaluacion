@@ -104,11 +104,11 @@ public Enviados (){
               obj.setId_documento(rs.getInt("pid_documento"));
               obj.setDescripcion(rs.getString("pdescripcion"));
               Personal personal = new Personal();
-              Personal persona = personal.personal_buscarporid(rs.getInt("pid_personal "));
+              Personal persona = personal.personal_buscarporid(rs.getInt("pid_personal"));
               obj.setPersonal(persona);
               
               Ciudadanos ciudadanos = new Ciudadanos();
-              Ciudadanos ciudadano = ciudadanos.ciudadano_buscarporid(rs.getInt("pid_ciudadano "));
+              Ciudadanos ciudadano = ciudadanos.ciudadano_buscarporid(rs.getInt("pid_ciudadano"));
               obj.setCiudadanos(ciudadano);
               
               

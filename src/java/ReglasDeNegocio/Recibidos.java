@@ -105,6 +105,11 @@ public class Recibidos {
     public void setId_recibidos(int id_recibidos) {
         this.id_recibidos = id_recibidos;
     }
+
+    @Override
+    public String toString() {
+        return destinatario; //To change body of generated methods, choose Tools | Templates.
+    }
     
     
         // Buscar todos

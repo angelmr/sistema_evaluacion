@@ -173,8 +173,7 @@ public class Folder {
           //llenamos el arraylist con todos los parametros
           parametros.add(new Parametro(1, folder.getNombre()));
           parametros.add(new Parametro(2, folder.getTipo()));
-          parametros.add(new Parametro(3, folder.getRecibidos().getId_recibidos()));
-          
+          parametros.add(new Parametro(3, folder.getRecibidos().getId_recibidos()));   
           //llenar el comando con los parametros
           cmd.setLstParametros(parametros);
           comandos.add(cmd);
@@ -210,9 +209,8 @@ public class Folder {
           parametros.add(new Parametro(1, folder.getId_folder()));
           parametros.add(new Parametro(2, folder.getNombre()));
           parametros.add(new Parametro(3, folder.getTipo()));
-          parametros.add(new Parametro(4, folder.getRecibidos().getId_recibidos()));
-          
-          
+          parametros.add(new Parametro(4, folder.getRecibidos().getId_recibidos()));        
+     
           //llenar el comando con los parametros
           cmd.setLstParametros(parametros);
           comandos.add(cmd);

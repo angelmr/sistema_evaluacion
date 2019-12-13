@@ -86,7 +86,10 @@ public Ciudadanos(){
         this.direccion = direccion;
     }
 
-     
+     @Override
+    public String toString() {
+        return nombre; //To change body of generated methods, choose Tools | Templates.
+    }
     // Buscar todos
     public static ArrayList<Ciudadanos> ciudadano_buscartodos() throws Exception
     {

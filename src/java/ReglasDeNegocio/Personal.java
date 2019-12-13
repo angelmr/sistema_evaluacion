@@ -75,7 +75,15 @@ public Personal(){
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
+
+    @Override
+    public String toString() {
+        return nombre; //To change body of generated methods, choose Tools | Templates.
+    }
      
+    
+    
+    
         // Buscar todos
     public static ArrayList<Personal> personal_buscartodos() throws Exception
     {

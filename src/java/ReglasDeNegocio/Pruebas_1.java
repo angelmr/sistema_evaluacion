@@ -321,7 +321,7 @@ obj.setId_enviados(6);
     Enviados.enviados_editar(obj);*/
     
 //  ELIMINAR
-//    Enviados.enviados_eliminar(6);
+  // Enviados.enviados_eliminar(2);
 
         
         
@@ -367,11 +367,11 @@ obj.setId_enviados(6);
 ////
 ////  INSERTAR
 /*Folder obj=new Folder();
-obj.setNombre("");
+obj.setNombre("w");
+obj.setTipo("c");
 Recibidos recibido = new Recibidos();
 Recibidos recibidos = recibido.recibidos_buscarporid(2);
-obj.setRecibidos(recibidos); 
-obj.setTipo("");
+obj.setRecibidos(recibidos);
     Folder.folder_insertar(obj);*/
 /*Sg_rol sg_rol = new Sg_rol();
 Sg_rol sg_roles = sg_rol.sg_rol_buscarporid(2);
@@ -384,16 +384,16 @@ obj.setSg_paginas(sg_paginas);
 //
 //    EDITAR
 /*Folder obj=new Folder();
-obj.setNombre("");
+obj.setNombre("w");
 Recibidos recibido = new Recibidos();
 Recibidos recibidos = recibido.recibidos_buscarporid(1);
 obj.setRecibidos(recibidos); 
-obj.setTipo("");
-obj.setId_folder(6);
+obj.setTipo("c");
+obj.setId_folder(2);
     Folder.folder_editar(obj);*/
     
 //  ELIMINAR
-//   Folder.folder_eliminar(6);
+  //      Folder.folder_eliminar(2);
 
         
         
@@ -465,7 +465,7 @@ obj.setId_personal(1);
     Personal.personal_editar(obj);*/
     
 //  ELIMINAR
-    Personal.personal_eliminar(3);//
+ //   Personal.personal_eliminar(3);//
 
         
         
@@ -604,18 +604,20 @@ obj.setId_prestamo(6);
                          
 ////
 ////  INSERTAR
+    
+    
 /*Recibidos obj=new Recibidos();
 obj.setId_documento(1);
-obj.setAsunto("");
-obj.setDestinatario("");
+obj.setAsunto("w");
+obj.setDestinatario("d");
 Eliminacion eliminacion = new Eliminacion();
-Eliminacion eliminaciones = eliminaciones.eliminacion_buscarporid(2);
-obj.setEliminacion(1);
-obj.setFecha_ingreso(null);
-obj.setFecha_oficio(null);
+Eliminacion eliminaciones = eliminacion.eliminacion_buscarporid(2);
+obj.setEliminacion(eliminaciones);
+obj.setFecha_ingreso(2019-12-12);
+obj.setFecha_oficio(2019-12-12);
 Personal persona = new Personal();
-Personal personal = personal.personal_buscarporid(2);
-obj.setPersonal(persona);
+Personal personal = persona.personal_buscarporid(2);
+obj.setPersonal(personal);
     Recibidos.recibidos_insertar(obj);*/
 
 /*Sg_rol sg_rol = new Sg_rol();
